@@ -1,16 +1,28 @@
 package com.byusluer.recipeproject.controller;
 
 
+import com.byusluer.recipeproject.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Slf4j
 @Controller
 public class IndexController {
 
-    @RequestMapping({"","/","/index"})
-    public String getIndexPage(){
+   private final RecipeService recipeService;
 
-        System.out.println("some message: edwdewewdwfefefedewdwdwewdw545454dewdwdew");
+    public IndexController(RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
+
+    @RequestMapping({"","/","/index"})
+    public String getIndexPage(Model model){
+
+          //  log.debug("getting index page");
+
+        model.addAttribute("recipies",recipeService.getRecipies());
         return "index";
     }
 }
