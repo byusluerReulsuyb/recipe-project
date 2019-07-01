@@ -5,7 +5,6 @@ import com.byusluer.recipeproject.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
@@ -25,7 +24,7 @@ public class RecipeServisImplTest {
     public void setUp() throws Exception {
 
         MockitoAnnotations.initMocks(this);
-        recipeServis = new RecipeServisImpl(recipeRepository);
+      //  recipeServis = new RecipeServisImpl(recipeRepository, recipeCommandConverter, recipeConverter);
     }
 
     @Test

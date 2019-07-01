@@ -1,8 +1,4 @@
-package com.byusluer.recipeproject.domain;
-
-import lombok.*;
-
-import javax.persistence.*;
+package com.byusluer.recipeproject.domain;import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 

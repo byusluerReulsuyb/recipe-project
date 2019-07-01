@@ -10,21 +10,39 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.js}"></script>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
     <title>Recipe Home</title>
 </head>
-<body>
+<tbody>
 <h1>My Recipes!</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-    </tr>
-    <tr th:each="recipe : ${recipies}">
-        <td th:text="${recipe.id}">123</td>
-        <td th:text="${recipe.description}">Tasty Goodnees</td>
-        <td th:text="${recipe.directions}">Tasty Goodnees</td>
-    </tr>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Categories</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr th:each="recipe : ${recipies}">
+                <td th:text="${recipe.id}">123</td>
+                <td th:text="${recipe.description}">Tasty Goodnees</td>
+                <td th:each="category : ${recipe.categories}">Tasty Goodnees</td>
+                <td>
+                    <a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}"
+                 th:text="${recipe.id}"> View </a> </td>
+
+
+            </tr>
+    </tbody>
 </table>
-</body>
+</tbody>
 </html>
+

@@ -95,6 +95,10 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
 
         recipeList.add(guacRecipe);
 
+      /*  System.out.println("this is the id -> " + recipeList.get(0).getId());
+        System.out.println("this is the id -> " + recipeList.get(0).getDescription());
+        System.out.println("this is the id -> " + recipeList.get(0).getDirections()); */
+
         return recipeList;
 
     }
