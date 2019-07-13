@@ -4,6 +4,7 @@ import com.byusluer.recipeproject.commands.RecipeCommand;
 import com.byusluer.recipeproject.converters.RecipeCommandToRecipe;
 import com.byusluer.recipeproject.converters.RecipeToRecipeCommand;
 import com.byusluer.recipeproject.domain.Recipe;
+import com.byusluer.recipeproject.exceptions.NotFoundException;
 import com.byusluer.recipeproject.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class RecipeServisImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe not Found");
+            throw new NotFoundException("Recipe Not Found for ID value:" + id.toString());
         }
 
         return recipeOptional.get();
@@ -64,4 +65,10 @@ public class RecipeServisImpl implements RecipeService {
 
         return recipeCommandConverter.convert(savedRecipe);
     }
+
+    @Override
+    public void deletebyID(Long id) {
+        recipeRepository.deleteById(id);
+    }
 }
+

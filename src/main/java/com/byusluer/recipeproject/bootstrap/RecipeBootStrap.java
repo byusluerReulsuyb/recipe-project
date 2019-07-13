@@ -93,6 +93,8 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.getCategories().add(amercican);
         guacRecipe.getCategories().add(mexican);
 
+        guacRecipe.addIngredient(new Ingredients( "ripe avocados", new BigDecimal(2),each));
+
         recipeList.add(guacRecipe);
 
       /*  System.out.println("this is the id -> " + recipeList.get(0).getId());
